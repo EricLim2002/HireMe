@@ -1,0 +1,6 @@
+{
+    "require": {
+        "livewire/livewire": "^3.6",
+        "twbs/bootstrap": "5.0.2"
+    }
+}
