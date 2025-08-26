@@ -12,6 +12,8 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         //
+    $middleware->append(\App\Http\Middleware\Locale::class);
+    // or prepend() to add to the beginning of the stack
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
