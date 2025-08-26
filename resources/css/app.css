@@ -1,13 +1,47 @@
-/* Import Bootstrap CSS */
 @import "bootstrap/dist/css/bootstrap.min.css";
 
-/* Your custom styles */
 body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
     font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa; /* optional default background */
+    z-index: -1;
+    background-color: blueviolet; /* base background */
 }
 
-/* Example custom class */
 .my-header {
     margin-bottom: 1rem;
+}
+
+.main-sidebar,
+.navbar,
+.main-content,
+.main-footer {
+    transition: all .5s;
+}
+
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* behind overlay or header */
+    background-color: transparent; /* okay, shows body bg */
+}
+
+.overlay-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    text-align: center;
+    color: #fff;
+}
+
+#particles-js canvas {
+    width: 100% !important;
+    height: 100% !important;
 }
