@@ -1,5 +1,9 @@
 // resources/js/generalFunction.js
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+// register plugin once
+gsap.registerPlugin(ScrollTrigger);
 
 function makeDraggable(elementId, containerId) {
     const element = document.getElementById(elementId);
@@ -206,12 +210,33 @@ function impactCrash(el, { axis, dir = 1, power = 1 }) {
     return tl;
 }
 
+function initFadeScroll(containerSelector = ".scrollable-text", childSelector = ".fade-text") {
+  const container = document.querySelector(containerSelector);
+  if (!container) return;
 
-
+  gsap.utils.toArray(`${containerSelector} ${childSelector}`).forEach((el) => {
+    gsap.fromTo(el,
+      { opacity: 0, y: 20 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        scrollTrigger: {
+          trigger: el,
+          container: containerSelector,
+          start: "top 90%",
+          end: "top 60%",
+          toggleActions: "play none none reverse"
+        }
+      }
+    );
+  });
+}
 
 
 
 // ✅ Attach to window so it’s accessible globally
 window.gsap = gsap;
+window.initFadeScroll = initFadeScroll;
 window.makeDraggable = makeDraggable;
 window.makeRunawayText = makeRunawayText;

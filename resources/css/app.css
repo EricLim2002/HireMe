@@ -1,14 +1,92 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 
+/* =========================
+   RESET & BASE STYLES
+   ========================= */
 body {
-    overflow: hidden;
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
+    /* allow content to grow beyond the viewport */
     font-size: 3rem;
     font-family: 'Arial', sans-serif;
     background: #9455f4 !important;
+    overflow-x: hidden;
+    /* keep horizontal hidden */
+    overflow-y: auto;
+    /* enable vertical scrolling */
+}
+
+/* Global Text Shadow */
+p,
+span,
+a,
+li,
+label,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    color: white;
+}
+
+/* =========================
+   TYPOGRAPHY
+   ========================= */
+h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 2.8rem;
+    color: white;
+}
+
+h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 4rem;
+    color: white;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
+a,
+.nav-link {
+    font-size: 20px;
+    text-decoration: none;
+    /* remove underline */
+    color: inherit;
+    /* inherit text color */
+}
+
+/* =========================
+   LAYOUT
+   ========================= */
+.container {
+    position: relative;
+    width: 100%;
+    height: 90vh;
+    margin: 5px auto;
+    padding: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+header {
+    position: sticky;
+    background-color: #593392;
+    color: white;
+    z-index: 1000;
+}
+
+nav {
+    text-align: center;
 }
 
 .my-header {
@@ -19,42 +97,176 @@ body {
 .main-content,
 .main-footer {
     transition: all .5s;
-}
-
-/* Particles Background */
-#tsparticles {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    pointer-events: none;
-}
-
-#tsparticles canvas {
-    width: 100% !important;
-    height: 100% !important;
-}
-
-/* Overlay Foreground */
-.overlay-content {
-    position: relative;
-    z-index: 10;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #fff;
-}
-
-.my-header,
-.main-footer {
     position: relative;
     z-index: 2;
 }
 
+.general-color {
+    background-color: #593392;
+    color: white;
+}
+
+/* =========================
+   NAVBAR & DROPDOWN
+   ========================= */
+.navbar {
+    align-items: center;
+    transition: all .5s;
+}
+
+.navbar a {
+    border-left: 1px solid #ccc;
+    padding: 0 8px;
+    margin: 1px;
+    text-align: center;
+}
+
+.navbar a:first-child {
+    border-left: none;
+}
+
+.dropdown-item {
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.dropdown-item:hover,
+.dropdown-item.active {
+    background-color: #f0f0f0;
+    color: #000;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.dropdown-menu {
+    display: none;
+    opacity: 0;
+    margin-right: 10px;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-menu a,
+.dropdown-menu li {
+    text-shadow: none !important;
+    color: black !important;
+    /* or any color you want */
+}
+
+/* =========================
+   COMPONENTS
+   ========================= */
+.scrollable-text {
+    font-size: 1.2rem;
+    text-align: justify;
+    color: white;
+    overflow-y: auto;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    padding: 10px;
+    border-radius: 8px;
+    position: relative;
+    height: 600px;
+    z-index: 15;
+}
+
+.scrollable {
+    overflow-y: auto;
+    scrollbar-width: none;
+    /* Firefox */
+    scroll-behavior: smooth;
+}
+
+.scrollable-image {
+    max-height: 600px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.scrollable-image::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera */
+}
+
+.scroll-hint {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    animation: bounce 1s infinite;
+    pointer-events: none;
+}
+
+.small-text {
+    font-size: 9px;
+}
+
+/* =========================
+   EFFECTS & ANIMATIONS
+   ========================= */
+.fade-text {
+    opacity: inherit;
+}
+
+.fade {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.fade.show {
+    opacity: 1;
+}
+
+.bouncing-text {
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    animation: bounce 1.2s infinite;
+    cursor: pointer;
+}
+
+.bouncing-text:hover {
+    color: white;
+    text-decoration: none;
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-15px);
+    }
+
+    60% {
+        transform: translateY(-7px);
+    }
+}
+
+/* =========================
+   SPECIAL / INTERACTIVE
+   ========================= */
 .draggable {
     position: absolute;
     cursor: grab;
@@ -71,101 +283,31 @@ body {
     cursor: default;
 }
 
-a,
-.nav-link {
-    font-size: 20px;
-}
-
-.general-color,
-header {
-    background-color: #593392;
-    color: white;
-}
-
-.navbar {
-    align-items: center;
-    transition: all .5s;
-}
-
-.navbar a {
-    text-decoration: none;
-    /* remove underline */
-    color: inherit;
-    /* inherit text color */
-    border-left: 1px solid #ccc;
-    /* separator before each */
-    padding: 0 8px;
-    /* spacing */
-    margin: 1px;
-    text-align: center;
-}
-
-.navbar a:first-child {
-    border-left: none;
-    /* no border before the first item */
-}
-
-.dropdown-item {
-    padding: 0.5rem 1rem;
-    font-size: 0.95rem;
-    color: #333;
-}
-
-.dropdown-item:hover,
-.dropdown-item.active {
-    background-color: #f0f0f0;
-    /* subtle hover effect */
-    color: #000;
-}
-
-.dropdown:hover .dropdown-menu {
-    display: block;
-    opacity: 1;
-    transition: opacity 0.6s ease-in-out;
-}
-
-.dropdown-menu {
-    display: none;
-    opacity: 0;
-    margin-right: 10px;
-    /* pushes menu slightly from right edge */
-    padding: 0.5rem 1rem;
-    /* inner padding so items aren’t cramped */
-    border-radius: 0.5rem;
-    /* rounded corners */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    /* subtle shadow */
-
-}
-
-.small-text {
-    font-size: 9px;
-}
-
-.container {
-    position: relative;
-    /* so the runaway text positions inside */
+/* =========================
+   PARTICLES BACKGROUND
+   ========================= */
+#tsparticles {
+    position: fixed;
+    inset: 0;
     width: 100%;
-    /* take full width */
-    height: 90vh;
-    /* full viewport height */
-    margin: 5px auto;
-    /* remove default margins */
-    padding: 0;
-    /* remove all padding */
-    overflow: hidden;
-    /* keep runaway text inside */
-    box-sizing: border-box;
-    /* more predictable sizing */
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
 }
 
-h1 {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  font-size: 2.8rem;
-  color: white;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+#tsparticles canvas {
+    width: 100% !important;
+    height: 100% !important;
 }
-nav {
+
+.overlay-content {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    color: #fff;
 }

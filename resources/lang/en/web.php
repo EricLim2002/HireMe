@@ -13,5 +13,11 @@ return [
         "hireme" => "Hire Me!",
         "helloworld" => "Hello, World!",
         "language" => "Language",
+        "workingExperience" => "Work Experience",
+        "downloadResume" => "Download Resume",
+        "download" => "Download",
+        "downloadme" => "Download Me!",
+        "introduction" => "Introduction",
+        "education" => "Education",
     ],
 ];
