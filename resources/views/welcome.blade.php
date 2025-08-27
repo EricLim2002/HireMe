@@ -13,7 +13,7 @@
     @livewire('header')
 
     <!-- Foreground Content -->
-    <div class="overlay-content container" id="container">
+    <div class="overlay-content container" id="container" style="height: 90vh !important;">
         <h1 class="text-3xl font-bold draggable runaway">
             {{ __('web.general.hireme') }}
         </h1>
@@ -23,7 +23,7 @@
 
     @livewireScripts
     <script>
-    
+
         document.addEventListener("DOMContentLoaded", function () {
             makeRunawayText('container');
             gsap.from(".overlay-content h1", {
@@ -31,7 +31,23 @@
                 y: -200,            // start 200px above its final position
                 ease: "bounce.out", // bounce effect
             });
+
+            document.querySelectorAll('.dropdown').forEach(dropdown => {
+                dropdown.addEventListener('mouseenter', () => {
+                    const toggle = dropdown.querySelector('[data-bs-toggle="dropdown"]');
+                    const bsDropdown = bootstrap.Dropdown.getOrCreateInstance(toggle);
+                    bsDropdown.show();
+                });
+
+                dropdown.addEventListener('mouseleave', () => {
+                    const toggle = dropdown.querySelector('[data-bs-toggle="dropdown"]');
+                    const bsDropdown = bootstrap.Dropdown.getOrCreateInstance(toggle);
+                    bsDropdown.hide();
+                });
+            });
         });
+
+
     </script>
 
 </body>

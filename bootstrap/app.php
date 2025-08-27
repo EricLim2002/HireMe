@@ -12,7 +12,7 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         // Append Locale AFTER session middleware
-        $middleware->append(\App\Http\Middleware\Locale::class);
+         $middleware->appendToGroup('web', \App\Http\Middleware\Locale::class);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
