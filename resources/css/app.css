@@ -1,13 +1,14 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 
 body {
+    overflow: hidden;
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
+    font-size: 3rem;
     font-family: 'Arial', sans-serif;
-    z-index: -1;
-    background-color: blueviolet; /* base background */
+    background: #9455f4 !important;
 }
 
 .my-header {
@@ -15,33 +16,156 @@ body {
 }
 
 .main-sidebar,
-.navbar,
 .main-content,
 .main-footer {
     transition: all .5s;
 }
 
-#particles-js {
+/* Particles Background */
+#tsparticles {
     position: fixed;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
-    z-index: 0; /* behind overlay or header */
-    background-color: transparent; /* okay, shows body bg */
+    z-index: 0;
+    pointer-events: none;
 }
 
+#tsparticles canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Overlay Foreground */
 .overlay-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     color: #fff;
 }
 
-#particles-js canvas {
-    width: 100% !important;
-    height: 100% !important;
+.my-header,
+.main-footer {
+    position: relative;
+    z-index: 2;
+}
+
+.draggable {
+    position: absolute;
+    cursor: grab;
+    user-select: none;
+}
+
+.draggable:active {
+    cursor: grabbing;
+}
+
+.runaway {
+    position: absolute;
+    transition: transform 0.2s ease;
+    cursor: default;
+}
+
+a,
+.nav-link {
+    font-size: 20px;
+}
+
+.general-color,
+header {
+    background-color: #593392;
+    color: white;
+}
+
+.navbar {
+    align-items: center;
+    transition: all .5s;
+}
+
+.navbar a {
+    text-decoration: none;
+    /* remove underline */
+    color: inherit;
+    /* inherit text color */
+    border-left: 1px solid #ccc;
+    /* separator before each */
+    padding: 0 8px;
+    /* spacing */
+    margin: 1px;
+    text-align: center;
+}
+
+.navbar a:first-child {
+    border-left: none;
+    /* no border before the first item */
+}
+
+.dropdown-item {
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.dropdown-item:hover,
+.dropdown-item.active {
+    background-color: #f0f0f0;
+    /* subtle hover effect */
+    color: #000;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.dropdown-menu {
+    display: none;
+    opacity: 0;
+    margin-right: 10px;
+    /* pushes menu slightly from right edge */
+    padding: 0.5rem 1rem;
+    /* inner padding so items aren’t cramped */
+    border-radius: 0.5rem;
+    /* rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* subtle shadow */
+
+}
+
+.small-text {
+    font-size: 9px;
+}
+
+.container {
+    position: relative;
+    /* so the runaway text positions inside */
+    width: 100%;
+    /* take full width */
+    height: 90vh;
+    /* full viewport height */
+    margin: 5px auto;
+    /* remove default margins */
+    padding: 0;
+    /* remove all padding */
+    overflow: hidden;
+    /* keep runaway text inside */
+    box-sizing: border-box;
+    /* more predictable sizing */
+}
+
+h1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 2.8rem;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}
+nav {
+    text-align: center;
 }

@@ -3,46 +3,34 @@
 
 <head>
     <meta charset="utf-8">
-    <title>HireMe</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <title>{{ __('web.general.hireme') }}</title>
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/generalFunction.js'])
     @livewireStyles
 </head>
 
-<body>
+<body class="text-white">
+
     @livewire('header')
 
-
-    <div id="particles-js"></div>
-    <div class="overlay-content">
-        <h1 class="text-3xl font-bold">{{ __('web.general.hireme') }}</h1>
+    <!-- Foreground Content -->
+    <div class="overlay-content container" id="container">
+        <h1 class="text-3xl font-bold draggable runaway">
+            {{ __('web.general.hireme') }}
+        </h1>
     </div>
 
+    @livewire('footer')
+
     @livewireScripts
-
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.9.1/tsparticles.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/preset-links@3/tsparticles.preset.links.min.js"></script>
-
     <script>
-        window.addEventListener("load", () => { // ensure everything loaded
-            tsParticles.load("particles-js", {
-                background: { color: { value: "transparent" } },
-                particles: {
-                    number: { value: 120 },
-                    color: { value: "#ffffff" },
-                    shape: { type: "circle" },
-                    opacity: { value: 0.9 },
-                    size: { value: { min: 3, max: 6 } }, // slightly bigger
-                    move: { enable: true, speed: 2.5, direction: "none", outModes: "bounce" }
-                },
-                interactivity: {
-                    events: {
-                        onHover: { enable: true, mode: "repulse" },
-                        onClick: { enable: true, mode: "push" }
-                    },
-                    modes: { repulse: { distance: 150 }, push: { quantity: 4 } }
-                }
+    
+        document.addEventListener("DOMContentLoaded", function () {
+            makeRunawayText('container');
+            gsap.from(".overlay-content h1", {
+                duration: 2.5,      // total animation time
+                y: -200,            // start 200px above its final position
+                ease: "bounce.out", // bounce effect
             });
-            console.log("tsparticles loaded");
         });
     </script>
 

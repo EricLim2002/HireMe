@@ -1,27 +1,34 @@
-<header class="fixed top-0 left-0 w-full bg-white shadow-md z-50 row">
-    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center navbar">
-        <div class='d-flex col-12 w-full row d-flex'>
-            <div class="col-8 d-flex justify-content-start">
-                <nav>
-                    <a href="/" class="m-1 col-3">{{ __('web.navigation.home') }}</a>
-                    <a href="/about" class="m-1 col-3">{{ __('web.navigation.about') }}</a>
-                    <a href="/showcase" class="m-1 col-3">{{ __('web.navigation.showcase') }}</a>
-                </nav>
-            </div>
-            <div class="col-4 d-flex justify-content-end">
-                <a href="{{ route('lang.switch', 'en') }}"
-                    class="{{ app()->getLocale() === 'en' ? 'font-bold underline' : '' }} m-1">
-                    English
-                </a>
-                <a href="{{ route('lang.switch', 'ms') }}"
-                    class="{{ app()->getLocale() === 'ms' ? 'font-bold underline' : '' }}  m-1">
-                    Bahasa Melayu
-                </a>
-                <a href="{{ route('lang.switch', 'zh') }}"
-                    class="{{ app()->getLocale() === 'zh' ? 'font-bold underline' : '' }}  m-1">
-                    中文
-                </a>
-            </div>
+<header class="fixed top-0 left-0 w-full bg-white shadow-md z-50 text-sm">
+    <div class="max-w-7xl mx-auto px-4 py-2 d-flex justify-content-between align-items-center navbar general-color">
+        <!-- Left nav -->
+        <nav class="d-flex gap-2">
+            <a href="/" class="nav-link">{{ __('web.navigation.home') }}</a>
+            <a href="/about" class="nav-link">{{ __('web.navigation.about') }}</a>
+            <a href="/experience" class="nav-link">{{ __('web.navigation.experience') }}</a>
+            <a href="/showcase" class="nav-link">{{ __('web.navigation.showcase') }}</a>
+        </nav>
+
+        <!-- Right dropdown -->
+        <div class="dropdown me-3"> <!-- 'me-3' adds margin-end so it's not stuck -->
+            <a class="dropdown-toggle nav-link" href="#" role="button" id="languageDropdown" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                {{ __('web.general.language') }}
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
+                <li>
+                    <a class="dropdown-item {{ app()->getLocale() === 'en' ? 'active' : '' }}"
+                        href="{{ route('lang.switch', 'en') }}">English</a>
+                </li>
+                <li>
+                    <a class="dropdown-item {{ app()->getLocale() === 'ms' ? 'active' : '' }}"
+                        href="{{ route('lang.switch', 'ms') }}">Bahasa Melayu</a>
+                </li>
+                <li>
+                    <a class="dropdown-item {{ app()->getLocale() === 'zh' ? 'active' : '' }}"
+                        href="{{ route('lang.switch', 'zh') }}">中文</a>
+                </li>
+            </ul>
         </div>
+
     </div>
 </header>
