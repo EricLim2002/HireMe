@@ -2,7 +2,9 @@
 
 return [
     'about' => [
-        'content' => "  I am a Full Stack Engineer with a specialization in developing scalable web and mobile applications using Laravel, PHP, JavaScript, and SQL. I have a proven track record of enhancing existing features, fixing bugs, and developing new functionalities to improve application performance.\n My expertise includes API integration, database design, and developing responsive websites. I have experience implementing the MQTT protocol for server integration and building custom interface solutions.\n  I am a strong problem-solver and a collaborative team player focused on delivering efficient, high-quality solutions that meet the latest industry standards.",
+        'content' => "  I am a Full Stack Engineer specializing in scalable web and mobile applications with Laravel, PHP, JavaScript, and SQL. I have a proven track record in enhancing features, fixing bugs, and developing new functionalities that boost application performance.
+                        My expertise spans API integration, database design, and responsive web development, with hands-on experience in MQTT protocol implementation and building custom interface solutions.
+                        I am a problem-solver and collaborative team player, committed to delivering efficient, high-quality solutions aligned with modern industry standards.",
         'experience' => [
             [
                 'company' => 'Mochi Technologies Sdn Bhd',
@@ -68,7 +70,122 @@ return [
                     'Pre-university program with emphasis on analytical thinking and fundamentals of computing.',
                 ],
             ],
+
+            [
+                'institution' => 'SMK Pusat Bandar Puchong (1)',
+                'degree' => 'SPM',
+                'result' => '2A 8B',
+                'period' => 'Oct 2015 – Aug 2019',
+                'points' => [
+                    'Science Stream.',
+                ],
+            ],
         ],
+        'skills' => [
+            'hard_skills' => [
+                'web_mobile_development' => [
+                    'Advanced' => [
+                        'Full Stack Development',
+                        'REST APIs',
+                        'MVC',
+                        'OOP',
+                        'Bootstrap',
+                        'jQuery',
+                    ],
+                    'Intermediate' => [
+                        'Software Architecture Design',
+                    ],
+                ],
+                'programming_languages' => [
+                    'Advanced' => [
+                        'HTML',
+                        'CSS',
+                        'PHP',
+                        'SQL',
+                    ],
+                    'Intermediate' => [
+                        'JavaScript',
+                        'Laravel',
+                        'Java',
+                        'C#',
+                    ],
+                    'Beginner' => [
+                        'React.js',
+                        'React Native',
+                        'C++',
+                        'Python',
+                        'Firebase',
+                    ],
+                ],
+            ],
+
+            'soft_skills' => [
+                'Advanced' => [
+                    'Business Logic',
+                    'Problem Solving',
+                    'Troubleshooting',
+                    'Code Review',
+                    'Documentation',
+                    'Communication',
+                    'Teamwork',
+                    'Time Management',
+                    'Customer Service',
+                    'Sales',
+                ],
+            ],
+
+            'tools' => [
+                'Advanced' => [
+                    'Database Design',
+                    'PhpMyAdmin',
+                    'XAMPP/WAMP',
+                    'Git/GitHub',
+                ],
+                'Beginner' => [
+                    'Data Modeling',
+                    'SQLite',
+                    'Docker',
+                    'Android Studio',
+                    'MQTT',
+                ],
+            ],
+        ],
+        'languages' => [
+            'Overall' => [
+                'Cantonese' => 'Native',
+                '中文' => 'Native',
+                'English' => 'Professional',
+                'Bahasa Melayu' => 'Intermediate',
+            ],
+            'Writing' => [
+                '中文' => 'Professional',
+                'English' => 'Professional',
+                'Bahasa Melayu' => 'Intermediate',
+            ],
+            'Speaking' => [
+                'Cantonese' => 'Fluent',
+                '中文' => 'Native',
+                'English' => 'Intermediate',
+                'Bahasa Melayu' => 'Intermediate',
+            ],
+            'Reading' => [
+                'Cantonese' => 'Beginner',
+                '中文' => 'Professional',
+                'English' => 'Professional',
+                'Bahasa Melayu' => 'Intermediate',
+            ],
+            'Listening' => [
+                'Cantonese' => 'Native',
+                '中文' => 'Native',
+                'English' => 'Professional',
+                'Bahasa Melayu' => 'Intermediate',
+            ],
+        ],
+
+
+
+
+
 
 
     ],

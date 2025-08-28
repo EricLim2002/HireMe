@@ -1,0 +1,95 @@
+/* =========================
+   Dark Mode
+   ========================= */
+
+/* --- PATCH: strengthen dark-mode overrides --- */
+/* =========================
+   Dark Mode
+   ========================= */
+
+/* Base theme toggle button */
+#theme-toggle {
+    background-color: transparent !important;
+    border: none !important;
+    padding: 0.25rem 0.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+}
+
+#theme-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+}
+
+/* Dark mode when .dark class is present on <html> */
+.dark body {
+    background: #593392 !important; /* Dark purple background */
+    color: #fff;
+}
+
+.dark footer,
+.dark header,
+.dark .general-color,
+.dark .navbar,
+.dark .offcanvas,
+.dark .dropdown-menu {
+    background-color: #9455f4 !important; /* Main purple in dark mode */
+    color: #fff;
+}
+
+.dark a,
+.dark .nav-link,
+.dark .dropdown-item {
+    color: #fff !important;
+}
+
+.dark .dropdown-item:hover,
+.dark .dropdown-item.active {
+    background-color: #7d47d4 !important; /* Slightly lighter shade */
+    color: #fff !important;
+}
+
+.dark .scroll-hint {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+}
+
+.dark .scrollable-image {
+    border: 1px solid #9455f4;
+}
+
+/* Theme toggle button in dark mode */
+.dark #theme-toggle {
+    background-color: transparent !important;
+    color: #fff; /* Icon color */
+}
+
+.dark #theme-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+/* Smooth transitions for theme change */
+html, body, header, .navbar, .offcanvas, .dropdown-menu,footer {
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+/* =========================
+   OFFCANVAS BACKDROP
+   ========================= */
+
+/* Default backdrop transition */
+.offcanvas-backdrop {
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+/* Light mode dim */
+html:not(.dark) .offcanvas-backdrop.show {
+    background-color: rgba(0, 0, 0, 0.2); /* Slight black dim */
+}
+
+/* Dark mode dim */
+html.dark .offcanvas-backdrop.show {
+    background-color: rgba(255, 255, 255, 0.1); /* Subtle light dim */
+}
+

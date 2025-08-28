@@ -1,0 +1,4 @@
+.hide-drawer-btn {
+    visibility: hidden; /* hides the button but keeps space */
+    pointer-events: none; /* optional: disables click */
+}

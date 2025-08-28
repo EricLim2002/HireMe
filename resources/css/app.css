@@ -1,28 +1,43 @@
+/* =========================
+   IMPORTS
+   ========================= */
 @import "bootstrap/dist/css/bootstrap.min.css";
+@import "style.css";
+@import "darkmode.css";
+@import "hide.css";
 
 /* =========================
-   RESET & BASE STYLES
+   RESET & BASE STYLES (default light mode)
    ========================= */
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+}
+
 body {
     margin: 0;
     padding: 0;
     width: 100%;
-    min-height: 100vh;
-    /* allow content to grow beyond the viewport */
-    font-size: 3rem;
+    min-height: 100vh; /* allow content to grow beyond the viewport */
+    font-size: 1rem;
     font-family: 'Arial', sans-serif;
     background: #9455f4 !important;
-    overflow-x: hidden;
-    /* keep horizontal hidden */
-    overflow-y: auto;
-    /* enable vertical scrolling */
 }
 
-/* Global Text Shadow */
+html.welcome-page {
+  overflow: hidden;
+}
+/* =========================
+   GLOBAL TEXT & TYPOGRAPHY
+   ========================= */
 p,
 span,
 a,
 li,
+small,
 label,
 h1,
 h2,
@@ -30,13 +45,11 @@ h3,
 h4,
 h5,
 h6 {
+    font-family: 'Poppins', sans-serif;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
     color: white;
 }
 
-/* =========================
-   TYPOGRAPHY
-   ========================= */
 h1 {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
@@ -45,6 +58,7 @@ h1 {
 }
 
 h2 {
+    position: sticky;
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
     font-size: 4rem;
@@ -56,30 +70,19 @@ p {
     color: white;
 }
 
-a,
-.nav-link {
-    font-size: 20px;
-    text-decoration: none;
-    /* remove underline */
+a {
     color: inherit;
-    /* inherit text color */
+    text-decoration: none;
 }
 
 /* =========================
-   LAYOUT
+   HEADER & NAVBAR
    ========================= */
-.container {
-    position: relative;
-    width: 100%;
-    height: 90vh;
-    margin: 10px auto;
-    padding: 0;
-    overflow: hidden;
-    box-sizing: border-box;
-}
-
 header {
-    position: sticky;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     background-color: #593392;
     color: white;
     z-index: 1000;
@@ -87,200 +90,6 @@ header {
 
 nav {
     text-align: center;
-}
-
-.my-header {
-    margin-bottom: 1rem;
-}
-
-.main-sidebar,
-.main-content,
-.main-footer {
-    transition: all .5s;
-    position: relative;
-    z-index: 2;
-}
-
-.general-color {
-    background-color: #593392;
-    color: white;
-}
-
-/* =========================
-   NAVBAR & DROPDOWN
-   ========================= */
-.navbar {
-    align-items: center;
-    transition: all .5s;
-}
-
-.navbar a {
-    border-left: 1px solid #ccc;
-    padding: 0 8px;
-    margin: 1px;
-    text-align: center;
-}
-
-.navbar a:first-child {
-    border-left: none;
-}
-
-.dropdown-item {
-    padding: 0.5rem 1rem;
-    font-size: 0.95rem;
-    color: #333;
-}
-
-.dropdown-item:hover,
-.dropdown-item.active {
-    background-color: #f0f0f0;
-    color: #000;
-}
-
-.dropdown:hover .dropdown-menu {
-    display: block;
-    opacity: 1;
-    transition: opacity 0.6s ease-in-out;
-}
-
-.dropdown-menu {
-    display: none;
-    opacity: 0;
-    margin-right: 10px;
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.dropdown-menu a,
-.dropdown-menu li {
-    text-shadow: none !important;
-    color: black !important;
-    /* or any color you want */
-}
-
-/* =========================
-   COMPONENTS
-   ========================= */
-.scrollable-text {
-    font-size: 1.2rem;
-    text-align: justify;
-    color: white;
-    overflow-y: auto;
-    scrollbar-width: none;
-    scroll-behavior: smooth;
-    padding: 10px;
-    border-radius: 8px;
-    position: relative;
-    height: 600px;
-    z-index: 15;
-}
-
-.scrollable {
-    overflow-y: auto;
-    scrollbar-width: none;
-    /* Firefox */
-    scroll-behavior: smooth;
-}
-
-.scrollable-image {
-    max-height: 600px;
-    overflow-y: auto;
-    border: 1px solid #ccc;
-    scrollbar-width: none;
-    /* Firefox */
-}
-
-.scrollable-image::-webkit-scrollbar {
-    display: none;
-    /* Chrome, Safari, Opera */
-}
-
-.scroll-hint {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 14px;
-    animation: bounce 1s infinite;
-    pointer-events: none;
-}
-
-.small-text {
-    font-size: 9px;
-}
-
-/* =========================
-   EFFECTS & ANIMATIONS
-   ========================= */
-.fade-text {
-    opacity: inherit;
-}
-
-.fade {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.fade.show {
-    opacity: 1;
-}
-
-.bouncing-text {
-    display: inline-block;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: white;
-    text-decoration: none;
-    animation: bounce 1.2s infinite;
-    cursor: pointer;
-}
-
-.bouncing-text:hover {
-    color: white;
-    text-decoration: none;
-}
-
-@keyframes bounce {
-
-    0%,
-    20%,
-    50%,
-    80%,
-    100% {
-        transform: translateY(0);
-    }
-
-    40% {
-        transform: translateY(-15px);
-    }
-
-    60% {
-        transform: translateY(-7px);
-    }
-}
-
-/* =========================
-   SPECIAL / INTERACTIVE
-   ========================= */
-.draggable {
-    position: absolute;
-    cursor: grab;
-    user-select: none;
-}
-
-.draggable:active {
-    cursor: grabbing;
-}
-
-.runaway {
-    position: absolute;
-    transition: transform 0.2s ease;
-    cursor: default;
 }
 
 /* =========================
@@ -298,20 +107,4 @@ nav {
 #tsparticles canvas {
     width: 100% !important;
     height: 100% !important;
-}
-
-.overlay-content {
-    position: relative;
-    z-index: 10;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #fff;
-}
-
-.offcanvas a.nav-link {
-    color: #fff;
 }

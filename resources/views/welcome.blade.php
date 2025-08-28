@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="welcome-page">
 
 <head>
     <meta charset="utf-8">
@@ -13,10 +13,13 @@
     @livewire('header')
 
     <!-- Foreground Content -->
-    <div class="overlay-content container" id="container" style="height: 90vh !important;">
+    <div class="overlay-content container mt-5" id="container" style="height:87vh !important;">
         <h1 class="text-3xl font-bold draggable runaway">
-            {{ __('web.general.hireme') }}
+            <a href="/about" class="no-underline text-inherit">
+                {{ __('web.general.hireme') }}
+            </a>
         </h1>
+
     </div>
 
     @livewire('footer')
