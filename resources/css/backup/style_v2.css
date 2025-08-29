@@ -17,7 +17,6 @@
     --fz-base: clamp(14px, 1.6vw, 16px);
     --fz-sm: clamp(12px, 1.3vw, 14px);
     --fz-lg: clamp(16px, 2vw, 18px);
-    --fz-xm: clamp(8px, 1vw, 10px);
 
     /* shadows */
     --text-shadow: 2px 2px 4px rgba(0, 0, 0, .6);
@@ -72,8 +71,7 @@ html {
 .footer-container {
     height: auto !important;
     max-width: 100%;
-    padding: 0 0px;
-    margin: 0 20px 0 20px auto !important;
+    padding: 0 15px;
     overflow: visible;
     box-sizing: content-box !important;
     /* Ensure padding doesn’t expand width */
@@ -142,7 +140,7 @@ html {
 
 .navbar a {
     display: inline-block;
-    padding: 0 8px;
+    padding: 0 16px;
     margin: 0;
     text-align: center;
     border-left: 1px solid rgba(255, 255, 255, .15);
@@ -190,6 +188,7 @@ html {
     padding: 0.5rem 0.75rem;
     border-radius: var(--radius);
     box-shadow: var(--elev-1);
+    left: 50% !important;
     transform: translateX(-50%) !important;
     text-align: center;
 }
@@ -307,7 +306,7 @@ html {
     z-index: 999;
     padding: 10px 16px;
     font-size: var(--fz-lg);
-    font-weight: bold;
+    font-weight: 700;
     border: none;
     border-radius: 50px;
     cursor: pointer;
@@ -338,13 +337,8 @@ html {
     transition: opacity .4s ease;
 }
 
-.fade-text.fade-init {
-    opacity: 0;
-}
-
-.fade-text.fade-init.show {
-    opacity: 1;
-}
+.fade-text.fade-init { opacity: 0; }
+.fade-text.fade-init.show { opacity: 1; }
 
 .fade {
     opacity: 0;
@@ -409,15 +403,15 @@ html {
 
 .back-to-top {
     position: fixed;
-    bottom: clamp(60px, 8vw, 66px);
+    bottom: clamp(56px, 8vw, 60px);
     right: clamp(16px, 4vw, 30px);
     z-index: 999;
-    padding: 6px 12px;
-    font-size: var(--fz-xm);
+    padding: 12px 18px;
+    font-size: var(--fz-lg);
     background-color: var(--secondary-color);
-    color: var(--primary-color);
+    color: var(--text-color);
     border: none;
-    border-radius: 30px;
+    border-radius: 50px;
     cursor: pointer;
     box-shadow: var(--elev-2);
     transition: opacity .3s ease, transform .2s ease;
@@ -453,7 +447,7 @@ html {
     }
 
     .navbar a {
-        padding: 0 8px;
+        padding: 0 12px;
     }
 
     .dropdown-menu {
@@ -484,89 +478,48 @@ html {
 
 /* Make the fixed header use your brand colors & readable links */
 .fixed-top .navbar.general-color {
-    background-color: var(--secondary-color);
-    color: var(--text-color);
+  background-color: var(--secondary-color);
+  color: var(--text-color);
 }
-
-.fixed-top .navbar .nav-link {
-    color: var(--text-color) !important;
-}
+.fixed-top .navbar .nav-link { color: var(--text-color) !important; }
 
 /* Keep nav centered even with absolute left/right blocks */
-.fixed-top .navbar nav {
-    max-width: 100%;
-}
+.fixed-top .navbar nav { max-width: 100%; }
 
 /* Better border in dark mode */
-:root[data-bs-theme="dark"] .border-bottom {
-    border-color: rgba(255, 255, 255, .2) !important;
-}
+:root[data-bs-theme="dark"] .border-bottom { border-color: rgba(255,255,255,.2) !important; }
 
 /* Dropdown alignment when absolutely positioned near left */
 .fixed-top .dropdown .dropdown-menu {
-    transform: translateX(0) !important;
-    /* default Bootstrap placement */
+  transform: translateX(0) !important; /* default Bootstrap placement */
 }
 
-.fixed-top .navbar.general-color {
-    background-color: var(--secondary-color);
-    color: var(--text-color);
-}
-
-.fixed-top .navbar.general-color .nav-link {
-    color: var(--text-color) !important;
-}
+.fixed-top .navbar.general-color { background-color: var(--secondary-color); color: var(--text-color); }
+.fixed-top .navbar.general-color .nav-link { color: var(--text-color) !important; }
 
 /* tighten list spacing slightly for dense content */
-.custom-textarea ul {
-    margin-bottom: 0.5rem;
-}
+.custom-textarea ul { margin-bottom: 0.5rem; }
 
 /* allow the scrollable area to adapt better on small screens */
 @media (max-width: 576px) {
-    .custom-textarea {
-        width: 95% !important;
-    }
-
-    .scrollable-text {
-        max-height: 70vh;
-    }
+  .custom-textarea { width: 95% !important; }
+  .scrollable-text { max-height: 70vh; }
 }
 
 .footer-bar {
-    background-color: var(--secondary-color);
-    color: var(--text-color);
-    font-size: 0.85rem;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  font-size: 0.85rem;
 }
 
 .footer-link {
-    color: var(--text-color) !important;
-    text-decoration: none;
-    font-size: 0.85rem;
-    text-shadow: var(--text-shadow);
+  color: var(--text-color) !important;
+  text-decoration: none;
+  font-size: 0.85rem;
+  text-shadow: var(--text-shadow);
 }
 
 .footer-link:hover {
-    color: var(--main-theme) !important;
-    text-decoration: underline;
-}
-
-.footer-content {
-    margin-left: 10px !important;
-    margin-right: 10px !important;
-}
-
-.no-shadow {
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-}
-
-.shadow-text {
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-}
-
-.welcome-page a:hover {
-    color: var(--main-theme);
-    /* or any color you like */
-    text-decoration: none;
-    /* optional */
+  color: var(--main-theme) !important;
+  text-decoration: underline;
 }

@@ -156,12 +156,3 @@ html.dark .border-bottom { border-color: rgba(255,255,255,.2) !important; }
     --page-fg: #ffffff;
   }
 }
-
-:root[data-bs-theme="dark"] .no-shadow {
-    text-shadow: 2px 2px 4px rgba(73, 73, 73, 0.4) !important;
-}
-
-/* Dark mode hover */
-:root[data-bs-theme="dark"] .welcome-page a:hover {
-    color: var(--secondary-color); /* different hover color for dark mode */
-}

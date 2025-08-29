@@ -1,38 +1,28 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="welcome-page">
+@extends('layouts.app')
 
-<head>
-    <meta charset="utf-8">
-    <title>{{ __('web.general.hireme') }}</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/generalFunction.js'])
-    @livewireStyles
-</head>
+@section('title', __('web.general.hireme'))
 
-<body class="text-white">
+{{-- Optional: add a custom class to <html> or <body> --}}
+@section('body-class', 'text-white welcome-page')
 
-    @livewire('header')
-
+@section('content')
     <!-- Foreground Content -->
-    <div class="overlay-content container mt-5" id="container" style="height:87vh !important;">
+    <div class="overlay-content container welcome-page mt-5" id="container" style="height:85vh !important;">
         <h1 class="text-3xl font-bold draggable runaway">
             <a href="/about" class="no-underline text-inherit">
-                {{ __('web.general.hireme') }}
+                {{ __('web.general.helloworld') }}
             </a>
         </h1>
-
     </div>
 
-    @livewire('footer')
-
-    @livewireScripts
+    @push('scripts')
     <script>
-
         document.addEventListener("DOMContentLoaded", function () {
             makeRunawayText('container');
             gsap.from(".overlay-content h1", {
-                duration: 2.5,      // total animation time
-                y: -200,            // start 200px above its final position
-                ease: "bounce.out", // bounce effect
+                duration: 2.5,
+                y: -200,
+                ease: "bounce.out",
             });
 
             document.querySelectorAll('.dropdown').forEach(dropdown => {
@@ -49,10 +39,6 @@
                 });
             });
         });
-
-
     </script>
-
-</body>
-
-</html>
+    @endpush
+@endsection

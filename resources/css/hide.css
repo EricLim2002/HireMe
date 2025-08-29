@@ -1,4 +1,15 @@
+/* Hide drawer button */
 .hide-drawer-btn {
-    visibility: hidden; /* hides the button but keeps space */
-    pointer-events: none; /* optional: disables click */
+    display: none; /* completely removes it from layout */
+    pointer-events: none; /* disables click, just in case */
+}
+
+/* Show drawer button on small screens (mobile) */
+@media (max-width: 992px) {
+    .hide-drawer-btn {
+        display: inline-block; /* show button on tablets/small screens */
+        visibility: visible;
+        pointer-events: auto;
+        cursor: pointer;
+    }
 }

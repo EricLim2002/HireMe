@@ -12,24 +12,19 @@
    ========================= */
 :root {
   /* Brand palette */
-  --brand-bg: #9455f4;
-  /* primary background (light) */
-  --brand-surface: #593392;
-  /* header / surfaces */
+  --brand-bg: #9455f4;       /* primary background (light) */
+  --brand-surface: #593392;  /* header / surfaces */
   --brand-text-on: #ffffff;
 
   /* Layout */
-  --header-h: 64px;
-  /* default header height */
-  --container-max: 1140px;
-  /* aligns with Bootstrap lg/xl containers */
+  --header-h: 64px;          /* default header height */
+  --container-max: 1140px;   /* aligns with Bootstrap lg/xl containers */
 
   /* Type scale (fluid) */
   --fz-base: clamp(14px, 1.6vw, 16px);
   --fz-h1: clamp(28px, 5.5vw, 44px);
   --fz-h2: clamp(24px, 4.5vw, 40px);
   --fz-h3: clamp(20px, 3.5vw, 32px);
-  --fz-p: clamp(14px, 1.5vw, 18px);
 
   /* Effects */
   --text-shadow: 2px 2px 4px rgba(0, 0, 0, .6);
@@ -50,13 +45,12 @@ html {
   scroll-behavior: smooth;
   overflow-x: hidden;
   overflow-y: auto;
-  scrollbar-width: none;
-  /* Firefox */
-  -ms-overflow-style: none;
-  /* IE 10+ */
-  font-size: var(--fz-base);
-  /* fluid base */
+  scrollbar-width: none;          /* Firefox */
+  -ms-overflow-style: none;       /* IE 10+ */
+  font-size: var(--fz-base);      /* fluid base */
 }
+
+html.welcome-page { overflow: hidden; }
 
 body {
   margin: 0;
@@ -71,10 +65,7 @@ body {
 }
 
 /* Improve media defaults */
-img,
-svg,
-video,
-canvas {
+img, svg, video, canvas {
   max-width: 100%;
   height: auto;
   display: block;
@@ -105,21 +96,16 @@ h1 {
   font-weight: 600;
   font-size: var(--fz-h1);
 }
-
 h2 {
   font-weight: 700;
   font-size: var(--fz-h2);
 }
-
 h3 {
   font-weight: 600;
   font-size: var(--fz-h3);
 }
 
-p ,li{
-  line-height: 1.65;
-  font-size: var(--fz-p);
-}
+p { line-height: 1.65; }
 
 a {
   color: inherit;
@@ -127,22 +113,9 @@ a {
 }
 
 @media (max-width: 576px) {
-
   /* Reduce heavy text shadow on small screens for readability */
-  p,
-  dt,
-  span,
-  a,
-  li,
-  small,
-  label,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, .5);
+  p, span, a, li, small, label, h1, h2, h3, h4, h5, h6 {
+    text-shadow: 1px 1px 2px rgba(0,0,0,.5);
   }
 }
 
@@ -151,8 +124,7 @@ a {
    ========================= */
 header {
   position: fixed;
-  inset: 0 0 auto 0;
-  /* top:0; left:0; width:100% */
+  inset: 0 0 auto 0;  /* top:0; left:0; width:100% */
   height: var(--header-h);
   background-color: var(--brand-surface);
   color: var(--brand-text-on);
@@ -163,26 +135,17 @@ header {
 
 /* Adjust header height across breakpoints */
 @media (min-width: 576px) {
-  :root {
-    --header-h: 70px;
-  }
+  :root { --header-h: 70px; }
 }
-
 @media (min-width: 992px) {
-  :root {
-    --header-h: 80px;
-  }
+  :root { --header-h: 80px; }
 }
 
 /* Navbar alignment (Bootstrap handles most of this) */
-nav {
-  text-align: center;
-}
+nav { text-align: center; }
 
 /* Space below fixed header without inline styles */
-.page-content-offset {
-  padding-top: calc(var(--header-h) + 16px);
-}
+.page-content-offset { padding-top: calc(var(--header-h) + 16px); }
 
 /* =========================
    CONTAINERS & SECTIONS
@@ -215,7 +178,6 @@ nav {
   z-index: 0;
   pointer-events: none;
 }
-
 #tsparticles canvas {
   width: 100% !important;
   height: 100% !important;
@@ -229,28 +191,21 @@ nav {
 .scrollable-image {
   max-height: 70vh;
   overflow: auto;
-  border: 1px solid rgba(255, 255, 255, .25);
+  border: 1px solid rgba(255,255,255,.25);
   border-radius: 8px;
   -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  /* Firefox */
+  scrollbar-width: none; /* Firefox */
 }
-
-.scrollable-image::-webkit-scrollbar {
-  display: none;
-}
+.scrollable-image::-webkit-scrollbar { display: none; }
 
 @media (max-width: 576px) {
-  .scrollable-image {
-    max-height: 50vh;
-  }
+  .scrollable-image { max-height: 50vh; }
 }
 
 /* Optional sticky heading behavior: only stick on larger screens */
 .sticky-lg {
   position: static;
 }
-
 @media (min-width: 992px) {
   .sticky-lg {
     position: sticky;
@@ -264,7 +219,7 @@ nav {
   left: 50%;
   bottom: clamp(12px, 3vw, 24px);
   transform: translateX(-50%);
-  background: rgba(0, 0, 0, .5);
+  background: rgba(0,0,0,.5);
   color: #fff;
   padding: 6px 12px;
   border-radius: 20px;
@@ -276,13 +231,8 @@ nav {
 
 /* Reduce motion for users who prefer it */
 @media (prefers-reduced-motion: reduce) {
-  .scroll-hint {
-    animation: none;
-  }
-
-  * {
-    transition: none !important;
-  }
+  .scroll-hint { animation: none; }
+  * { transition: none !important; }
 }
 
 /* Bouncing CTA text scales responsively */
@@ -294,55 +244,35 @@ nav {
   animation: bounce 1.2s infinite;
   cursor: pointer;
 }
-
 .bouncing-text:hover {
   text-decoration: none;
 }
 
 /* Bounce keyframes */
 @keyframes bounce {
-
-  0%,
-  20%,
-  50%,
-  80%,
-  100% {
-    transform: translateY(0);
-  }
-
-  40% {
-    transform: translateY(-12px);
-  }
-
-  60% {
-    transform: translateY(-6px);
-  }
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-12px); }
+  60% { transform: translateY(-6px); }
 }
 
 /* Utility: hide scrollbar but keep scrollability */
 .scrollable {
   overflow-y: auto;
-  scrollbar-width: none;
-  /* Firefox */
+  scrollbar-width: none;    /* Firefox */
   -webkit-overflow-scrolling: touch;
 }
-
-.scrollable::-webkit-scrollbar {
-  display: none;
-}
+.scrollable::-webkit-scrollbar { display: none; }
 
 /* =========================
    ACCESSIBILITY TWEAKS
    ========================= */
 :focus-visible {
-  outline: 2px dashed rgba(255, 255, 255, .85);
+  outline: 2px dashed rgba(255,255,255,.85);
   outline-offset: 2px;
 }
 
 /* Improve contrast for small text */
-small {
-  opacity: .95;
-}
+small { opacity: .95; }
 
 /* =========================
    RESPONSIVE HELPERS
@@ -351,7 +281,7 @@ small {
 
 /* Two-column to one-column fallback for custom rows (Bootstrap’s grid is preferred) */
 @media (max-width: 768px) {
-  .two-col-stack>[class*="col-"] {
+  .two-col-stack > [class*="col-"] {
     width: 100%;
     max-width: 100%;
   }
