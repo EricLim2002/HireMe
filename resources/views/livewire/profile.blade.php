@@ -40,14 +40,14 @@
 
     <dt class="col-4 col-md-3 fade-text shadow-text">{{ __('web.personal.linkedin') }}:</dt>
     <dd class="col-8 col-md-9 fade-text">
-      <a href="tel:{{ __('web.profile.linkedin') }}" class="text-white text-decoration-none">
+      <a href="{{ __('web.profile.linkedin') }}" class="text-white text-decoration-none" target="_blank">
         {{ __('web.profile.linkedin') }}
       </a>
     </dd>
 
     <dt class="col-4 col-md-3 fade-text shadow-text">{{ __('web.personal.github') }}:</dt>
     <dd class="col-8 col-md-9 fade-text">
-      <a href="tel:{{ __('web.profile.github') }}" class="text-white text-decoration-none">
+      <a href="{{ __('web.profile.github') }}" class="text-white text-decoration-none"  target="_blank">
         {{ __('web.profile.github') }}
       </a>
     </dd>

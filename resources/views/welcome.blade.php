@@ -10,7 +10,7 @@
     <div class="overlay-content container welcome-page mt-5" id="container" style="height:85vh !important;">
         <h1 class="text-3xl font-bold draggable runaway">
             <a href="/about" class="no-underline text-inherit">
-                {{ __('web.general.helloworld') }}
+                {{ __('web.general.hireme') }}
             </a>
         </h1>
     </div>

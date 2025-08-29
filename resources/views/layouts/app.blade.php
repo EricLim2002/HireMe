@@ -18,7 +18,9 @@
         @yield('content')
     </main>
 
-    @livewire('footer')
+
+        @livewire('footer')
+
 
     @livewireScripts
 

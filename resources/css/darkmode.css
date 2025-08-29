@@ -107,6 +107,8 @@ html.dark .scroll-hint {
   color: #fff;
 }
 :root[data-bs-theme="dark"] .scrollable-image,
+:root[data-bs-theme="dark"] .scrollable-image-xl,
+:root[data-bs-theme="dark"] .scrollable-image-s,
 html.dark .scrollable-image { border: 1px solid var(--secondary-color); }
 
 /* Theme toggle color in dark */
@@ -162,6 +164,6 @@ html.dark .border-bottom { border-color: rgba(255,255,255,.2) !important; }
 }
 
 /* Dark mode hover */
-:root[data-bs-theme="dark"] .welcome-page a:hover {
-    color: var(--secondary-color); /* different hover color for dark mode */
+:root[data-bs-theme="dark"] a:hover {
+    color: var(--secondary-color) !important; /* different hover color for dark mode */
 }

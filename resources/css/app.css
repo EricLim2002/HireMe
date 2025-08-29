@@ -226,7 +226,7 @@ nav {
    ========================= */
 
 /* Scrollable image wrapper with safe height on smaller screens */
-.scrollable-image {
+.scrollable-image-xl,.scrollable-image-s,.scrollable-image {
   max-height: 70vh;
   overflow: auto;
   border: 1px solid rgba(255, 255, 255, .25);
@@ -236,6 +236,8 @@ nav {
   /* Firefox */
 }
 
+.scrollable-image-xl::-webkit-scrollbar,
+.scrollable-image-s::-webkit-scrollbar,
 .scrollable-image::-webkit-scrollbar {
   display: none;
 }
@@ -243,6 +245,15 @@ nav {
 @media (max-width: 576px) {
   .scrollable-image {
     max-height: 50vh;
+  }
+  .scrollable-image-s{
+    width: 80%;
+  }
+}
+
+@media (max-width: 784px) {
+  .scrollable-image-xl {
+    max-height: 90vh;
   }
 }
 
@@ -360,6 +371,14 @@ small {
 /* Responsive spacing helpers when needed */
 .pad-inline {
   padding-inline: clamp(8px, 2.5vw, 24px);
+}
+
+
+ a:hover {
+    color: var(--main-theme);
+    /* or any color you like */
+    text-decoration: none;
+    /* optional */
 }
 
 /* =========================
