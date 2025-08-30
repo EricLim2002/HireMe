@@ -6,6 +6,7 @@
 @import "style.css";
 @import "darkmode.css";
 @import "hide.css";
+@import "bootstrap_override.css";
 
 /* =========================
    THEME & DESIGN TOKENS
@@ -19,7 +20,7 @@
   --brand-text-on: #ffffff;
 
   /* Layout */
-  --header-h: 64px;
+  --header-h: 45px;
   /* default header height */
   --container-max: 1140px;
   /* aligns with Bootstrap lg/xl containers */
@@ -33,6 +34,9 @@
 
   /* Effects */
   --text-shadow: 2px 2px 4px rgba(0, 0, 0, .6);
+  
+    --bs-primary: var(--main-theme);
+    --bs-primary-rgb: 148, 85, 244; /* rgb of #9455f4 */
 }
 
 /* Optional: if you use Bootstrap 5.3 theming via data-bs-theme="dark"
@@ -164,13 +168,13 @@ header {
 /* Adjust header height across breakpoints */
 @media (min-width: 576px) {
   :root {
-    --header-h: 70px;
+    --header-h: 40px;
   }
 }
 
 @media (min-width: 992px) {
   :root {
-    --header-h: 80px;
+    --header-h: 45px;
   }
 }
 

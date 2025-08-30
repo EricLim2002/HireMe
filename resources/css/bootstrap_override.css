@@ -1,0 +1,44 @@
+:root {
+  /* Brand palette */
+  --brand-bg: #9455f4;
+  /* primary background (light) */
+  --brand-surface: #593392;
+  /* header / surfaces */
+  --brand-text-on: #ffffff;
+
+  /* Layout */
+  --header-h: 45px;
+  /* default header height */
+  --container-max: 1140px;
+  /* aligns with Bootstrap lg/xl containers */
+
+  /* Type scale (fluid) */
+  --fz-base: clamp(14px, 1.6vw, 16px);
+  --fz-h1: clamp(28px, 5.5vw, 44px);
+  --fz-h2: clamp(24px, 4.5vw, 40px);
+  --fz-h3: clamp(20px, 3.5vw, 32px);
+  --fz-p: clamp(14px, 1.5vw, 18px);
+
+  /* Effects */
+  --text-shadow: 2px 2px 4px rgba(0, 0, 0, .6);
+    --bs-primary: var(--secondary-color);
+    --bs-primary-rgb: 148, 85, 244; /* rgb of #9455f4 */
+}
+
+.btn-primary {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--main-theme);
+    border-color: var(--main-theme);
+    color: var(--text-color);
+}
+
+.btn-primary:active {
+    background-color: var(--main-theme);
+    border-color: var(--main-theme);
+}

@@ -20,6 +20,7 @@ public function up()
         $table->string('timezone')->nullable();
         $table->string('user_agent')->nullable();
         $table->timestamps();
+        $table->softDeletes();
     });
 }
 

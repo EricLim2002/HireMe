@@ -10,7 +10,7 @@
     --text-color-secondary: #000000;
 
     /* layout tokens */
-    --header-h: 70px;
+    --header-h: 45px;
     --radius: 12px;
 
     /* fluid type */
@@ -88,6 +88,8 @@ html {
 /* give containers flexible height with fallbacks by viewport */
 .small-container {
     min-height: 50vh;
+    width: min(95%, 1200px);
+    box-sizing: content-box;
 }
 
 .container {
@@ -106,7 +108,7 @@ html {
 
 @media (min-width: 1200px) {
     .small-container {
-        min-height: 65vh;
+        min-height: 70vh;
     }
 
     .container {
@@ -262,11 +264,8 @@ html {
     z-index: 15;
 }
 
-.scrollable-text::-webkit-scrollbar {
-    display: none;
-}
-
-.scrollable-image {
+.scrollable-image.image-wrapper {
+    position: relative;
     max-height: 60vh;
     overflow: auto;
     border: 1px solid rgba(0, 0, 0, .15);
@@ -275,8 +274,22 @@ html {
     -webkit-overflow-scrolling: touch;
 }
 
-.scrollable-image::-webkit-scrollbar {
+.scrollable-image.image-wrapper::-webkit-scrollbar {
     display: none;
+}
+
+.scrollable-image.image-wrapper .watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    font-size: 48px;
+    color: rgba(255, 255, 255, 0.2);
+    pointer-events: none;
+    user-select: none;
+    white-space: nowrap;
+    text-transform: uppercase;
+    z-index: 2;
 }
 
 /* better border in dark */
@@ -562,4 +575,81 @@ html {
 
 .shadow-text {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Accordion wrapper */
+.accordion-item {
+    border: none;
+    background: transparent;
+}
+
+/* Accordion button (header) */
+.accordion-button {
+    background: var(--secondary-color) !important;
+    box-shadow: none !important;
+    border: none !important;
+    color: var(--brand-text-on);
+    /* your theme text color */
+    font-weight: 600;
+}
+
+/* Open state */
+.accordion-button:not(.collapsed) {
+    background: var(--secondary-color) !important;
+    color: var(--brand-bg);
+    /* highlight when open */
+}
+
+/* Hover state */
+.accordion-button:hover,
+.accordion-button:focus {
+    background: var(--secondary-color) !important;
+    color: var(--brand-bg);
+    box-shadow: none !important;
+}
+
+/* Remove default Bootstrap icon background */
+.accordion-button::after {
+    filter: invert(1);
+    /* make chevron visible on dark bg */
+}
+
+/* Accordion body */
+.accordion-body {
+    background: var(--secondary-color);
+    padding: 0.75rem 1rem;
+}
+
+/* UL list */
+.accordion-body ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+/* Links inside body */
+.accordion-body ul li a {
+    display: block;
+    padding: 6px 10px;
+    color: var(--brand-text-on);
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.accordion-body ul li a:hover {
+    background: rgba(148, 85, 244, 0.1);
+    /* light brand hover */
+    color: var(--brand-bg);
+}
+
+.accordion-button,
+.accordion-body,
+.accordion-body ul li a {
+    color:#ffffff;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.accordion-button::after {
+    transition: filter 0.3s ease;
 }

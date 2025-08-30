@@ -167,3 +167,24 @@ html.dark .border-bottom { border-color: rgba(255,255,255,.2) !important; }
 :root[data-bs-theme="dark"] a:hover {
     color: var(--secondary-color) !important; /* different hover color for dark mode */
 }
+
+[data-bs-theme="dark"] {
+    --bs-primary: var(--main-theme);
+    --bs-primary-rgb: 148, 85, 244;
+    --bs-body-color: var(--text-color);
+    --bs-body-bg: #121212; /* Dark mode background */
+}
+
+:root[data-bs-theme="dark"] .accordion-button:hover,
+:root[data-bs-theme="dark"].accordion-button:focus {
+    color: var(--main-theme) !important;
+}
+:root[data-bs-theme="dark"] .accordion-body ul li a {
+    color: var(--main-theme);
+}
+
+:root[data-bs-theme="dark"] .accordion-button:not(.collapsed) {
+    background: var(--secondary-color) !important;
+    color: var(--main-theme);
+    /* highlight when open */
+}

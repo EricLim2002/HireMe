@@ -11,16 +11,14 @@
 </head>
 
 <body class="@yield('body-class', '')">
-
+    @livewire('loading')
     @livewire('header')
 
     <main>
         @yield('content')
     </main>
 
-
-        @livewire('footer')
-
+    @livewire('footer')
 
     @livewireScripts
 

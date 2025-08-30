@@ -15,7 +15,8 @@
 
             <div class="row d-flex align-items-center mb-3">
                 <div class="col-6 text-center">
-                    <a href="/download/Eric_resume_082025.pdf" download class="bouncing-text">
+                    <a href="{{ route('download', ['encoded' => base64_encode('Eric_resume_082025.pdf')]) }}"
+                           class="bouncing-text" target="_blank" download>
                         ⬇ {{ __('web.general.downloadme') }} ⬇
                     </a>
                 </div>
@@ -28,7 +29,8 @@
                 <!-- PDF Preview -->
                 <div class="col-md-6 mb-3">
                     <div class="scrollable-image">
-                        <img src="{{ asset('download/Eric_resume_082025.png') }}" alt="Resume" style="width:100%;">
+                        <img src="{{ route('preview', ['encoded' => base64_encode('Eric_resume_082025.png')]) }}"
+                             alt="{{ __('web.document.resume') }}" style="width:100%;">
                     </div>
                 </div>
 

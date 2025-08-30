@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\GeneralController;
@@ -32,6 +33,16 @@ Route::middleware([TrackVisitor::class])->group(function () {
     Route::get('/about', function () {
         return view('page.aboutme');
     });
+    Route::get('/certs', function () {
+        $files = Storage::files('private/download'); // list certs
+        return view('certs', ['files' => array_map('basename', $files)]);
+    })->name('certs.index');
+
+    Route::get('/preview/{encoded}', [FileController::class, 'preview'])
+        ->name('preview');
+
+    Route::get('/download/{encoded}', [FileController::class, 'download'])
+        ->name('download');
 
     Route::get('/session-data', [GeneralController::class, 'getSessionData']);
     Route::get('/test-locale', function () {
