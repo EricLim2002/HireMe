@@ -41,7 +41,7 @@ return [
             ],
             [
                 'company' => 'Hee Lai Ton 餐厅, Puchong',
-                'role' => '厨房助理（兼职）',
+                'role' => '打荷（兼职）',
                 'period' => '2016年8月 – 2019年4月',
                 'points' => [
                     '准备食材并协助厨房运作。',
