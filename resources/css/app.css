@@ -379,7 +379,7 @@ small {
 
 
  a:hover {
-    color: var(--main-theme);
+    color: var(--main-theme) !important;
     /* or any color you like */
     text-decoration: none;
     /* optional */

@@ -653,3 +653,52 @@ html {
 .accordion-button::after {
     transition: filter 0.3s ease;
 }
+
+.contact-card {
+  text-align: center;
+}
+
+
+.contact-item {
+    background-color: var(--secondary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 12px 0;
+  padding: 12px;
+  border: 1px solid var(--main-theme);
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.contact-item i {
+  color: var(--text-color);
+  font-size: 1.2rem;
+}
+
+.contact-item a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+  font-size: var(--fz-base);
+}
+
+.contact-item:hover {
+  background: var(--main-theme);
+  border: 1px solid var(--secondary-color);
+}
+
+.contact-item:hover a,
+.contact-item:hover i {
+  color: var(--text-color);
+}
+
+.contact-footer {
+  font-size: var(--fz-sm);
+  font-style: italic;
+  color: var(--text-color);
+  border-top: 1px dashed var(--secondary-color);
+  margin-top: 20px;
+  padding-top: 10px;
+}

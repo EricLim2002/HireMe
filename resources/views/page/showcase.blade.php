@@ -8,8 +8,8 @@
     @section('body-class', 'text-white')
 
     @section('content')
-        <div class=" d-flex flex-column min-vh-100">
-
+        <div class=" d-flex flex-column min-vh-100 justify-content-center">
+            <h2 class='text-center'>{{__('web.navigation.showcase')}}<h2>
 
         </div>
 

@@ -49,3 +49,8 @@ Route::middleware([TrackVisitor::class])->group(function () {
         dd(App::getLocale(), Session::get('language_settings'));
     });
 });
+
+Route::get('/test-image', function () {
+    $img = Image::canvas(200, 200, '#ff0000');
+    return $img->response('png');
+});

@@ -42,7 +42,8 @@ return [
         'phone' => '+60 17-2151528',
         'location' => 'Puchong ,Selangor, Malaysia',
         'linkedin' => 'https://www.linkedin.com/in/jc111122/',
-        'github' => 'https://github.com/EricLim2002'
+        'github' => 'https://github.com/EricLim2002',
+        'contact_msg'=> 'Feel free to reach out to me via email or phone for any inquiries or opportunities. I look forward to connecting with you!'
     ],
     'footer' => [
         'title' => 'HireMe – Jin Chong Lim',

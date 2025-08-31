@@ -12,9 +12,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Str;
-use Intervention\Image\Facades\Image;
+use Intervention\Image\ImageManager;
 use Illuminate\Support\Facades\Storage;
-
+use Intervention\Image\Drivers\Imagick\Driver;
 
 class FileController extends Controller
 {
@@ -90,58 +90,64 @@ class FileController extends Controller
         }
     }
 
-    public function preview($encoded)
-    {
+
+public function preview($encoded)
+{
+    try {
+        // Resolve the original file path
         try {
-            // Resolve the original file path
-            try {
-                $full = $this->resolvePathFromEncoded($encoded);
-            } catch (Exception $e) {
-                Log::error('[preview] resolve exception', ['err' => $e->getMessage()]);
-                abort(404);
-            }
-
-            GeneralHelper::createLog(request(), $full, 1);
-
-            // Watermark folder
-            $watermarkDir = storage_path('app/watermarked');
-            if (!file_exists($watermarkDir)) {
-                mkdir($watermarkDir, 0755, true);
-            }
-
-            // Generate a unique filename for watermarked version
-            $watermarkedFile = $watermarkDir . '/' . 'wm_' . basename($full);
-
-            // Only generate watermark if not already exists
-            if (!file_exists($watermarkedFile)) {
-                $img = Image::make($full);
-
-                // Add text watermark
-                $img->text('Confidential', $img->width() / 2, $img->height() / 2, function ($font) {
-                    $font->file(public_path('fonts/arial.ttf')); // make sure the font exists
-                    $font->size(48);
-                    $font->color([255, 255, 255, 0.5]); // white, 50% opacity
-                    $font->align('center');
-                    $font->valign('middle');
-                    $font->angle(45);
-                });
-
-                $img->save($watermarkedFile);
-            }
-
-            Log::info('[preview] streaming watermarked file', [
-                'original' => $full,
-                'watermarked' => $watermarkedFile,
-                'size' => filesize($watermarkedFile)
-            ]);
-
-            return response()->file($watermarkedFile);
-
+            $full = $this->resolvePathFromEncoded($encoded);
         } catch (Exception $e) {
-            GeneralHelper::saveTryCatch("FileController", 'preview', null, $e);
-            abort(500, 'An error occurred while generating preview.');
+            Log::error('[preview] resolve exception', ['err' => $e->getMessage()]);
+            abort(404);
         }
+
+        GeneralHelper::createLog(request(), $full, 1);
+
+        // Watermark folder
+        $watermarkDir = storage_path('app/watermarked');
+        if (!file_exists($watermarkDir)) {
+            mkdir($watermarkDir, 0755, true);
+        }
+
+        // Generate a unique filename for watermarked version
+        $watermarkedFile = $watermarkDir . '/' . 'wm_' . basename($full);
+
+        // Only generate watermark if not already exists
+        if (!file_exists($watermarkedFile)) {
+            // ✅ FIX: Create image manager with driver object
+            $manager = new ImageManager(new Driver());
+
+            // ✅ v3 uses read() instead of make()
+            $img = $manager->read($full);
+
+            // Add text watermark
+            $img->text('Confidential', $img->width() / 2, $img->height() / 2, function ($font) {
+                $font->filename('/var/www/html/public/fonts/arial.ttf'); // force full path // v3 method
+                $font->size(256);
+                $font->color('rgba(32, 32, 32, 0.1)');       // CSS style color
+                $font->align('center');
+                $font->valign('middle');
+                $font->angle(-45);
+            });
+
+            $img->save($watermarkedFile);
+        }
+
+        Log::info('[preview] streaming watermarked file', [
+            'original' => $full,
+            'watermarked' => $watermarkedFile,
+            'size' => filesize($watermarkedFile)
+        ]);
+
+        return response()->file($watermarkedFile);
+
+    } catch (Exception $e) {
+        GeneralHelper::saveTryCatch("FileController", 'preview', null, $e);
+        abort(500, 'An error occurred while generating preview.');
     }
+}
+
 
     public function download($encoded)
     {
@@ -174,15 +180,23 @@ class FileController extends Controller
 
                 // Only generate if not exists
                 if (!file_exists($watermarkedFile)) {
-                    $img = Image::make($full);
+                    // Create image manager (v3 style)
+                   $manager = new ImageManager(new Driver());
+
+
+                    // Read original image
+                    $img = $manager->read($full);
+
+                    // Add watermark
                     $img->text('Confidential', $img->width() / 2, $img->height() / 2, function ($font) {
-                        $font->file(public_path('fonts/arial.ttf'));
+                        $font->filename('/var/www/html/public/fonts/arial.ttf'); // force full path // v3 uses filename()
                         $font->size(48);
-                        $font->color([255, 255, 255, 0.5]);
+                        $font->color('rgba(255,255,255,0.5)'); // v3 prefers CSS-style color
                         $font->align('center');
                         $font->valign('middle');
                         $font->angle(45);
                     });
+
                     $img->save($watermarkedFile);
                 }
 
