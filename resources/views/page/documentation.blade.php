@@ -21,11 +21,13 @@
                                     'title' => 'web.document.resume',
                                     'preview' => 'Eric_resume_082025.png',
                                     'download' => 'Eric_resume_082025.pdf',
+                                    'publicFlag' => '1', // 1 = public / whitelisted
                                 ],
                                 [
                                     'title' => 'web.document.cover_letter',
                                     'preview' => 'CoverLetter.png',
                                     'download' => 'CoverLetter.pdf',
+                                    'publicFlag' => '1', // 1 = public / whitelisted
                                 ],
                             ],
                         ])

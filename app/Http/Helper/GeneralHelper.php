@@ -34,7 +34,7 @@ class GeneralHelper extends Controller
                     break;
 
                 case (2):
-                    PreviewLog::create([
+                    DownloadLog::create([
                         'user_id' => $request->user_id,
                         'visitor_id' => $request->visitor_id,
                         'document' => $document,

@@ -41,6 +41,7 @@ class BookshelfListing extends Component
                     'title' => $d['title'],
                     'preview' => route('preview', ['encoded' => base64_encode($d['preview'])]),
                     'download' => route('download', ['encoded' => base64_encode($d['download'])]),
+                    'publicFlag' => $d['publicFlag'] ?? '0', // default to 0 = private
                 ];
                 $this->processDoc[] = $doc;
             }

@@ -9,7 +9,7 @@
 
     @section('content')
         <div class=" d-flex flex-column min-vh-100 justify-content-center">
-            <h2 class='text-center'>{{__('web.navigation.showcase')}}<h2>
+            <h2 class='text-center'>{{__('web.general.comming_soon')}}<h2>
 
         </div>
 

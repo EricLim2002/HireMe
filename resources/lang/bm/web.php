@@ -24,6 +24,7 @@ return [
         "scroll" => "Skrol",
         "skill" => "Kemahiran",
         "years_old" => 'tahun',
+        "comming_soon" => "Akan Datang",
     ],
     'personal' => [
         'title' => 'Maklumat Peribadi',
