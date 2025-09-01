@@ -24,6 +24,7 @@ return [
         "scroll" => "Scroll",
         "skill" => "Skills",
         "years_old" => 'years old',
+        "comming_soon" => "Comming Soon",
     ],
     'personal' => [
         'title' => 'Personal Information',

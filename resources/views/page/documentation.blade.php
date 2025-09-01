@@ -21,11 +21,13 @@
                                     'title' => 'web.document.resume',
                                     'preview' => 'Eric_resume_082025.png',
                                     'download' => 'Eric_resume_082025.pdf',
+                                    'publicFlag' => '1', // 1 = public / whitelisted
                                 ],
                                 [
                                     'title' => 'web.document.cover_letter',
                                     'preview' => 'CoverLetter.png',
                                     'download' => 'CoverLetter.pdf',
+                                    'publicFlag' => '1', // 1 = public / whitelisted
                                 ],
                             ],
                         ])
@@ -37,7 +39,6 @@
                                 ['title' => 'web.document.penolong_ketua', 'preview' => 'cert/academic/penolong_ketua.png', 'download' => 'cert/academic/penolong_ketua.pdf'],
                                 ['title' => 'web.document.phy_chem_report', 'preview' => 'cert/academic/phy_chem_report.png', 'download' => 'cert/academic/phy_chem_report.pdf'],
                                 ['title' => 'web.document.quat_cert', 'preview' => 'cert/academic/quat_cert.png', 'download' => 'cert/academic/quat_cert.pdf'],
-                                ['title' => 'web.document.sijil_berhenti_sekolah', 'preview' => 'cert/academic/sijil_berhenti_sekolah.png', 'download' => 'cert/academic/sijil_berhenti_sekolah.pdf'],
                                 ['title' => 'web.document.sijil_pencapaian', 'preview' => 'cert/academic/sijil_pencapaian.png', 'download' => 'cert/academic/sijil_pencapaian.pdf'],
                                 ['title' => 'web.document.surat_akaun', 'preview' => 'cert/academic/surat_akaun.png', 'download' => 'cert/academic/surat_akaun.pdf'],
                             ],

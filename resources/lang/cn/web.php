@@ -24,6 +24,7 @@ return [
         "scroll" => "滚动",
         "skill" => "技能",
         "years_old" => '岁',
+        "comming_soon" => "敬请期待",
     ],
     'personal' => [
         'title' => '个人信息',

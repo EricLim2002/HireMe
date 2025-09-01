@@ -14,7 +14,7 @@
         <div class="accordion-body">
             @foreach ($processDoc as $doc)
                 <a href="javascript:void(0)" onclick="updatePreview(this)" data-preview="{{ $doc['preview'] }}"
-                    data-download="{{ $doc['download'] }}" data-alt="{{ __($doc['title']) }}">
+                    data-download="{{ $doc['download'] }}" data-alt="{{ __($doc['title']) }}" data-public="{{ __($doc['publicFlag']) }}">
                     {{ __($doc['title']) }}
                 </a><br>
             @endforeach
