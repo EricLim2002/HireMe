@@ -1,4 +1,4 @@
-<footer class="mt-auto py-2 border-top w-100 footer-bar">
+<footer class="mt-4 py-2 border-top w-100 footer-bar">
   <div class="container-fluid footer-container">
     <div class="row align-items-center text-center text-md-start justify-content-center g-2 footer-content">
       <!-- Left -->
