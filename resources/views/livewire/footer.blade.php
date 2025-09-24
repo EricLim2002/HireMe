@@ -3,7 +3,7 @@
     <div class="row align-items-center text-center text-md-start justify-content-center g-2 footer-content">
       <!-- Left -->
       <div class="col-md-4 mb-2 mb-md-0 text-center text-md-start">
-        <small>&copy; {{ __('web.footer.copyright') }} — All rights reserved</small>
+        <small>&copy; {{ __('web.footer.copyright') }}</small>
       </div>
 
       <!-- Middle -->
