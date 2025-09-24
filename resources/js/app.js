@@ -1,8 +1,9 @@
-import { tsParticles } from '@tsparticles/engine';
-import { loadSlim } from '@tsparticles/slim';
+import { tsParticles } from "@tsparticles/engine";
+import { loadLinksPreset } from "@tsparticles/preset-links";
+
 
 document.addEventListener('DOMContentLoaded', async () => {
-  await loadSlim(tsParticles);
+  await loadLinksPreset(tsParticles);
 
   await tsParticles.load({
     id: 'tsparticles', // can be any id; not required to exist in DOM when fullScreen is used
